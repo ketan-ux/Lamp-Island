@@ -1,0 +1,10 @@
+// Cloudflare Workers static-assets deployment: `npm run build && npx wrangler deploy`
+// serves the Vite output in dist/ as-is (no Worker script needed).
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "lamp-island",
+	"compatibility_date": "2026-10-23",
+	"assets": {
+		"directory": "./dist"
+	}
+}

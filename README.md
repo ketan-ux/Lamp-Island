@@ -62,6 +62,9 @@ npm run preview      # serve the production build
 ### Deploying
 `.github/workflows/deploy.yml` builds the site and publishes it to GitHub Pages on every push to `main`. You can also run it by hand from the Actions tab. Enable it once under **Settings → Pages → Source: GitHub Actions**.
 
+### Cloudflare
+`wrangler.jsonc` serves `dist/` as static assets on Cloudflare Workers. In the Cloudflare build settings, use `npm run build` as the build command and `npx wrangler deploy` as the deploy command. Cloudflare Pages also works: set the output directory to `dist`.
+
 ### Debug flags
 - `?debug` exposes `window.__lk`, which holds the world, input and season state, for scripted testing.
 - `?fast` allows larger simulation steps, for slow software-rendered test runs.
