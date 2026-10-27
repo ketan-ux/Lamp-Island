@@ -254,6 +254,7 @@ ui.vrButton.addEventListener( 'click', async () => {
 	audio.start();
 	try {
 
+		renderer.xr.setFramebufferScaleFactor( QUALITY.xr.framebufferScale );
 		const session = await navigator.xr.requestSession( 'immersive-vr', {
 			optionalFeatures: [ 'local-floor', 'bounded-floor', 'hand-tracking', 'layers' ],
 		} );

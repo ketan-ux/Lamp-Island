@@ -20,12 +20,12 @@ export const QUALITY = {
 	desktop: {
 		shadowMapSize: 2048,
 		maxPixelRatio: 2,
-		bloom: true,
 	},
 	xr: {
 		shadowMapSize: 1024,
 		foveation: 1,
-		bloom: false,
+		// Quest 2's GPU gets a little headroom; newer headsets render at 1.0.
+		framebufferScale: /Quest 2|Quest\b(?! [3-9]| Pro)/.test( navigator.userAgent ) ? 0.85 : 1,
 	},
 };
 

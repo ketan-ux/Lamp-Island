@@ -40,6 +40,7 @@ Shape changes are done on the GPU by vertex deformers. Lotus petals hinge open. 
 ### Quest / standalone optimisation
 - About **40 draw calls and about 67k triangles per eye**, counting the shadow pass. Trees, reeds, lily pads, leaves and particles are all instanced.
 - Masked surfaces use Lambert shading. There is no post-processing in XR (an additive halo stands in for bloom), and fixed foveation is set to maximum.
+- Quest 2 renders at a 0.85 framebuffer scale to leave some GPU headroom. Newer headsets render at 1.0.
 - Fireflies, falling leaves and petals, and the finale's sky lanterns are animated entirely on the GPU from per-particle seeds.
 - No downloads apart from the JavaScript bundle (about 175 kB gzipped). Textures and all audio are generated procedurally with Web Audio.
 

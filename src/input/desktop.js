@@ -42,6 +42,14 @@ export class DesktopInput {
 		this.handQuat = new Quaternion();
 		this.shieldAmount = 0;
 
+		// Some embeds refuse pointer lock; fall back to drag-to-look for mice too.
+		this.noLock = false;
+		document.addEventListener( 'pointerlockerror', () => {
+
+			this.noLock = true;
+
+		} );
+
 		document.addEventListener( 'pointerlockchange', () => {
 
 			this.locked = document.pointerLockElement === canvas;
@@ -92,7 +100,7 @@ export class DesktopInput {
 		// Touch / no-pointer-lock fallback: drag to look, long press to reach.
 		canvas.addEventListener( 'pointerdown', ( e ) => {
 
-			if ( ! this.enabled || this.locked || e.pointerType === 'mouse' ) return;
+			if ( ! this.enabled || this.locked || ( e.pointerType === 'mouse' && ! this.noLock ) ) return;
 			this._drag = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now() };
 			this._touchTimer = setTimeout( () => {
 
