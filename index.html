@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#05090b" />
+		<meta name="description" content="The Lantern Keeper's Shrine — a VR-first light-and-shadow diorama. Carry a living wisp in a brass lantern and wake the spirits of a mist-bound grove." />
+		<title>The Lantern Keeper's Shrine</title>
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6c-4 8-12 14-12 26a12 12 0 0 0 24 0C44 20 36 14 32 6z' fill='%23ffb054'/%3E%3C/svg%3E" />
+		<link rel="stylesheet" href="./src/style.css" />
+	</head>
+	<body>
+		<div id="overlay" class="overlay">
+			<div class="panel">
+				<p class="kicker">A light-and-shadow diorama</p>
+				<h1>The Lantern Keeper's&nbsp;Shrine</h1>
+				<p class="lede">
+					A tiny mossy island in a mist-bound forest pond. In your hand, an old brass lantern
+					carries a living forest spirit. Bring its light close and the grove remembers&nbsp;itself.
+				</p>
+				<div class="actions">
+					<button id="btn-vr" class="btn primary" disabled>Checking for VR…</button>
+					<button id="btn-desktop" class="btn" disabled>Explore on desktop</button>
+				</div>
+				<p id="status" class="status">Weaving the grove…</p>
+				<div class="controls">
+					<section>
+						<h2>In VR</h2>
+						<ul>
+							<li><b>Move the lantern</b> close to stones, roots and paper lotuses to wake them.</li>
+							<li><b>Roll your wrist</b> to tilt the lantern: right pours <span class="spring">Spring</span>, left pours <span class="autumn">Autumn</span>.</li>
+							<li><b>Cup the flame</b> with your other hand to shield it and turn the season.</li>
+							<li><b>Trigger / grip / pinch</b> with the empty hand to pass the lantern.</li>
+							<li>Thumbsticks: snap turn (lantern hand), glide (empty hand).</li>
+						</ul>
+					</section>
+					<section>
+						<h2>On desktop</h2>
+						<ul>
+							<li><b>Mouse</b> look &middot; <b>WASD</b> walk the island.</li>
+							<li><b>Hold left click</b> to reach the lantern toward what you look at.</li>
+							<li><b>Q / E</b> or <b>wheel</b> tilt toward <span class="autumn">Autumn</span> / <span class="spring">Spring</span>.</li>
+							<li><b>Hold right click</b> or <b>Space</b> to shield the flame.</li>
+							<li><b>M</b> mute &middot; <b>H</b> hints &middot; <b>Esc</b> pause.</li>
+						</ul>
+					</section>
+				</div>
+				<p class="goal">Wake the twelve spirits of the grove, then bring the wisp to the shrine.</p>
+			</div>
+		</div>
+
+		<div id="hud" class="hud hidden" aria-live="polite">
+			<div class="hud-top">
+				<div id="spirits" class="spirits" title="Spirits awakened"></div>
+				<div class="season" title="Season of the wisp">
+					<span class="autumn">Autumn</span>
+					<div class="gauge"><div id="season-marker" class="marker"></div></div>
+					<span class="spring">Spring</span>
+				</div>
+			</div>
+			<div id="hint" class="hint"></div>
+			<div id="toast" class="toast"></div>
+			<div class="reticle"></div>
+		</div>
+
+		<div id="pause" class="overlay pause hidden">
+			<div class="panel small">
+				<h2>Paused</h2>
+				<p>Click to return to the grove.</p>
+			</div>
+		</div>
+
+		<noscript>This experience needs JavaScript and WebGL 2.</noscript>
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>
